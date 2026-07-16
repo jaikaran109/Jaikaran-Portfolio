@@ -10,4 +10,4 @@ This portfolio showcases my skills, projects, coding journey, and contact inform
 
 Add your deployed portfolio link here:
 
-jaikaran-portfolio-git-main-jaikaran109s-projects.vercel.app
+[jaikaran-Portfolio](https://jaikaran-portfolio-git-main-jaikaran109s-projects.vercel.app/)
