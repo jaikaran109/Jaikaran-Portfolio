@@ -1,7 +1,14 @@
-# Jaikaran-Portfolio
+# Jai Karan Gupta | Developer Portfolio
 
+A modern red-black developer portfolio built with **HTML, CSS, and JavaScript**.
 
-live :- https://jaikaran109.github.io/Jaikaran-Portfolio/
+This portfolio showcases my skills, projects, coding journey, and contact information in a clean and responsive design.
 
+---
 
-<img width="1626" height="791" alt="image" src="https://github.com/user-attachments/assets/9a429981-ec4b-4851-856f-7105f01be894" />
+## 🚀 Live Preview
+
+Add your deployed portfolio link here:
+
+```text
+https://your-portfolio-link.com
