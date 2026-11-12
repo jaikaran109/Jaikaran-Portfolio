@@ -1,0 +1,30 @@
+allowBuilds:
+  '@parcel/watcher': true
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
+  workerd: true
+overrides:
+  # Nuxt 4.5 moved to unhead v3; older copies (unhead@2.x) break @unhead/vue
+  # hoisting across nuxtseo-shared/@nuxtjs/sitemap — pin everything to v3.
+  unhead: ^3.4.2
+  '@unhead/vue': ^3.4.2
+minimumReleaseAgeExclude:
+  - '@nuxt/*'
+  - nuxt
+  - '@vue/*'
+  - vue
+  - reka-ui
+  - wrangler
+  - workerd
+  - '@cloudflare/*'
+  - '@typescript/*'
+  - '@types/*'
+  - '@lucide/*'
+  - '@commitlint/*'
+  - miniflare
+  - '@iconify-json/*'
+  - '@oxlint/*'
+  - '@oxfmt/*'
+  - oxlint
+  - oxfmt

@@ -1,0 +1,28 @@
+# Cloudflare Workers Static Assets headers (prerendered pages bypass nitro
+# server middleware, so RFC 8288 Link headers must come from this file).
+
+/
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/about/
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/projects/
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/open-source/
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+/articles/
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+# Individual posts. Without this every article is cached as HTML and served
+# for Accept: text/markdown too, so the markdown variant never reaches anyone.
+/articles/*
+  Link: </llms.txt>; rel="llms"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept

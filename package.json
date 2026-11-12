@@ -1,0 +1,80 @@
+{
+  "name": "jaikaran-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jai Karan Gupta's personal portfolio",
+  "homepage": "https://github.com/jaikaran109/Jaikaran-Portfolio",
+  "bugs": {
+    "url": "https://github.com/jaikaran109/Jaikaran-Portfolio/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jai Karan Gupta",
+    "email": "jaikaran109@gmail.com",
+    "url": "https://github.com/jaikaran109"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaikaran109/Jaikaran-Portfolio.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@cf-wasm/og": "^0.4.1",
+    "@geoql/maplibre-gl-starfield": "^0.1.2",
+    "@geoql/v-maplibre": "^3.0.1",
+    "@openpanel/sdk": "^1.3.1",
+    "better-sqlite3": "^13.0.3",
+    "maplibre-gl": "^6.13.0",
+    "nuxt": "^4.6.0",
+    "ogl": "^1.0.11",
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@iconify-json/lucide": "^1.2.145",
+    "@iconify-json/simple-icons": "^1.2.100",
+    "@nuxt/content": "^3.16.2",
+    "@nuxt/fonts": "^1.0.1",
+    "@nuxt/icon": "^2.5.1",
+    "@nuxt/image": "^2.1.0",
+    "@nuxtjs/color-mode": "^4.0.1",
+    "@nuxtjs/plausible": "^4.0.0",
+    "@nuxtjs/sitemap": "^8.6.1",
+    "@nuxtjs/tailwindcss": "7.0.0-beta.1",
+    "@openpanel/nuxt": "^0.4.1",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^26.6.5",
+    "@vueuse/core": "^15.0.0",
+    "@vueuse/nuxt": "^15.0.0",
+    "clsx": "^2.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "motion-v": "2.8.0",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.151.1"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=20.0.0"
+    }
+  },
+  "packageManager": "pnpm@12.10.1+sha512.ba40a37eb1a370d60fea8c4cf1d364c13bcccef518e98ad2bcee954f539d38da37458e58261a3fa55e06523450ea0ffff9f497b135be41f2c15c1642bacace6c"
+}

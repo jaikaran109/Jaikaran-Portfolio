@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "nuxt-agent-ready-best-practices",
+      "type": "skill-md",
+      "description": "Make a Nuxt site operable by autonomous AI agents (isitagentready.com): markdown negotiation, Link headers, API catalogs, agent-skills indexes, WebMCP, DNS-AID.",
+      "url": "https://jaikaran109.github.io/.well-known/agent-skills/nuxt-agent-ready/SKILL.md",
+      "digest": "sha256:19bb58262e3bcdb808defd5e96557e796bcd5c5b468a021b0117fc9caa612f56"
+    },
+    {
+      "name": "nuxt-geo-best-practices",
+      "type": "skill-md",
+      "description": "Get cited by ChatGPT, Perplexity, Claude, and Google AI Overviews: AI-crawler access (llms.txt, allowlists), RAG-extractable content, entity JSON-LD, GEO visibility levers.",
+      "url": "https://jaikaran109.github.io/.well-known/agent-skills/nuxt-geo/SKILL.md",
+      "digest": "sha256:2a12c1c23b34d3b3a28b5c5b84778e4e802cf002b52d65055214cb2bc734897e"
+    },
+    {
+      "name": "nuxt-seo-best-practices",
+      "type": "skill-md",
+      "description": "Nuxt SEO on Cloudflare: dynamic OG image generation on Workers, page SEO composables, JSON-LD structured data, Nitro configuration.",
+      "url": "https://jaikaran109.github.io/.well-known/agent-skills/nuxt-seo/SKILL.md",
+      "digest": "sha256:ae155cf1ac66d860426da7ab9b9048baefb3fd4b1685221ec877566fb21af1d9"
+    },
+    {
+      "name": "vue-best-practices",
+      "type": "skill-md",
+      "description": "Vue.js performance and composition guidelines: reactivity, computed vs methods, v-once/v-memo, composables, async components.",
+      "url": "https://jaikaran109.github.io/.well-known/agent-skills/vue-best-practices/SKILL.md",
+      "digest": "sha256:39556d7b2a2b77f56d67b2724862a8557a03a7c0f54e0589c580616c8fba681d"
+    }
+  ]
+}

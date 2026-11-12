@@ -1,0 +1,78 @@
+<script setup lang="ts">
+  import { motion } from 'motion-v';
+  import { cn } from '~/lib/utils';
+
+  const props = withDefaults(
+    defineProps<{
+      class?: string;
+      size?: number;
+      duration?: number;
+      borderWidth?: number;
+      anchor?: number;
+      colorFrom?: string;
+      colorTo?: string;
+      delay?: number;
+    }>(),
+    {
+      class: '',
+      size: 200,
+      duration: 15,
+      borderWidth: 1.5,
+      anchor: 90,
+      colorFrom: '#ffaa40',
+      colorTo: '#9c40ff',
+      delay: 0,
+    },
+  );
+
+  // Inline styles bypass the CSS build pipeline entirely. lightningcss (the
+  // minifier behind the Tailwind v4 toolchain) rewrites the scoped-CSS mask
+  // shorthand + longhand combo in a way that reorders -webkit-mask-composite
+  // and merges the shorthand, breaking the border clip in WebKit browsers —
+  // the beam gradient then paints as a solid block. Inline declarations reach
+  // the browser byte-for-byte, so the intersect/source-in pair survives.
+  const maskStyle = computed(() => ({
+    '--border-width': `${props.borderWidth}px`,
+    mask: 'linear-gradient(transparent, transparent), linear-gradient(white, white)',
+    maskClip: 'padding-box, border-box',
+    maskComposite: 'intersect',
+    '-webkit-mask':
+      'linear-gradient(transparent, transparent), linear-gradient(white, white)',
+    '-webkit-mask-clip': 'padding-box, border-box',
+    '-webkit-mask-composite': 'source-in',
+  }));
+</script>
+
+<template>
+  <div
+    :style="maskStyle"
+    :class="cn('border-beam pointer-events-none absolute inset-0', props.class)"
+  >
+    <component
+      :is="motion.div"
+      :style="{
+        width: `${size}px`,
+        height: `${size}px`,
+        background: `linear-gradient(to left, ${colorFrom}, ${colorTo}, transparent)`,
+        offsetPath: `rect(0 auto auto 0 round ${size}px)`,
+        offsetAnchor: `${anchor}% 50%`,
+      }"
+      :initial="{ offsetDistance: '0%' }"
+      :animate="{ offsetDistance: '100%' }"
+      :transition="{
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: 'linear',
+      }"
+      class="absolute aspect-square"
+    />
+  </div>
+</template>
+
+<style scoped>
+  .border-beam {
+    border-radius: inherit;
+    border: var(--border-width) solid transparent;
+  }
+</style>

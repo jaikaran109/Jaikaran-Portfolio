@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Bumping any real declaration rotates the entry.css content hash. Used to
+     escape a CDN-cached 404 on the old asset URL (edge cached the asset path
+     during a deploy race with immutable headers). */
+  --asset-rev: 2;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-display:
+    'Geist', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+html {
+  font-family:
+    Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Shiki multi-theme mode switches token colours via html.light/html.dark on
+   the token vars, but never defines the code-block background (--shiki-*-bg is
+   emitted empty). Without this the <pre> keeps one background in both modes, so
+   light-theme dark tokens land on a dark block. Drive the container from our own
+   oklch tokens per mode. */
+.prose pre.shiki {
+  background-color: oklch(0.96 0 0);
+  color: var(--foreground);
+}
+
+.dark .prose pre.shiki {
+  background-color: oklch(0.205 0 0);
+}
+
+/* @tailwindcss/typography decorates inline <code> with literal backtick
+   pseudo-elements by default. Suppress them and style inline code as a
+   subtle chip instead. */
+.prose :where(code):not(:where(pre code))::before,
+.prose :where(code):not(:where(pre code))::after {
+  content: none;
+}
+
+.prose :where(code):not(:where(pre code)) {
+  background-color: var(--secondary);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-weight: 500;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01' 1;
+  letter-spacing: -0.02em;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+*,
+*::before,
+*::after {
+  border-color: var(--border);
+}
+
+/* Hide scrollbar on every scroll container (html + nested, e.g. prose <pre>)
+   while keeping scroll functionality. Scoping to html alone leaves nested
+   overflow containers showing a raw scrollbar. */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
