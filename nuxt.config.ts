@@ -173,55 +173,10 @@ export default defineNuxtConfig({
     externals: {
       inline: [/[/\\]node_modules[/\\]nuxt[/\\]dist[/\\]/],
     },
-    preset: process.env.NITRO_PRESET || 'cloudflare_module',
+    preset: 'vercel',
     prerender: {
       crawlLinks: true,
       routes: ['/', '/about', '/projects', '/open-source'],
-    },
-    cloudflare: {
-      nodeCompat: true,
-      deployConfig: true,
-      wrangler: {
-        name: 'jaikaran-portfolio',
-        compatibility_date: '2026-10-01',
-        compatibility_flags: ['nodejs_compat'],
-        workers_dev: false,
-        d1_databases: [
-          {
-            binding: 'DB',
-            database_name: 'jaikaran-portfolio-db',
-            database_id: '4e5afc7d-61a8-44d5-9a9b-a3fbd6cb7277',
-          },
-        ],
-        // Workers Cache API — nitro passes arbitrary wrangler keys through its
-        // defu merge (no allowlist); Pages rejected this key, Workers accepts it.
-        // Needs wrangler >=4.89.0 for the base block.
-        cache: {
-          enabled: true,
-        },
-        observability: {
-          enabled: true,
-        },
-        placement: {
-          mode: 'smart',
-        },
-        // Route the markdown-negotiable pages through the Worker so the
-        // agent-ready middleware can serve Accept: text/markdown. Static
-        // assets bypass middleware by default; run_worker_first opts these
-        // paths back into the Worker (markdown hits are rare, browsers still
-        // get the cached prerendered HTML variant via Vary: Accept).
-        assets: {
-          run_worker_first: [
-            '/',
-            '/about',
-            '/about/',
-            '/projects',
-            '/projects/',
-            '/open-source',
-            '/open-source/',
-          ],
-        },
-      },
     },
     experimental: {
       wasm: true,
