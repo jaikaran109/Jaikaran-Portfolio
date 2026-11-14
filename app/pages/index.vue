@@ -44,6 +44,8 @@
   <main class="dark bg-background">
     <HeroSection />
 
+    <TechnicalSkillsSection />
+
     <!-- Section Teasers -->
     <section class="relative py-24">
       <div class="mx-auto max-w-5xl px-6">

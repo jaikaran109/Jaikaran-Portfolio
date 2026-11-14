@@ -36,39 +36,7 @@
             machine learning can solve real-world problems.
           </p>
 
-          <h3 class="text-xl font-medium text-foreground mb-4">
-            Technical Skills
-          </h3>
-
-          <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>Programming Languages</h4>
-              <p>Java, C, Python, JavaScript</p>
-            </div>
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>Frontend Development</h4>
-              <p>HTML5, CSS3, JavaScript, React.js, Tailwind CSS</p>
-            </div>
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>Backend Development</h4>
-              <p>Node.js, Express.js, REST APIs</p>
-            </div>
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>Databases & Tools</h4>
-              <p>MongoDB, Git, GitHub, Postman</p>
-            </div>
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>Core Computer Science</h4>
-              <p>Data Structures & Algorithms, OOP, DBMS, SQL</p>
-            </div>
-            <div class="p-4 rounded-xl border border-border bg-card">
-              <h4>AI & Machine Learning</h4>
-              <p>
-                Machine Learning, Deep Learning fundamentals, Scikit-learn,
-                TensorFlow, AI-powered applications
-              </p>
-            </div>
-          </div>
+          <TechnicalSkillsSection />
 
           <h3 class="text-xl font-medium text-foreground mb-4">
             Beyond Coding
