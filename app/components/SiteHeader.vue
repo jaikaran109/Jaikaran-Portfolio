@@ -67,7 +67,7 @@
             class="rounded-full p-2 text-foreground transition-colors hover:bg-accent/80"
             aria-label="Home"
           >
-            <Icon name="base:v-logo" class="size-6" mode="svg" />
+            <Icon name="base:j-logo" class="size-6" mode="svg" />
           </NuxtLink>
         </component>
 

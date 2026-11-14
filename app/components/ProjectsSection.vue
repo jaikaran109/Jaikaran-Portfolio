@@ -3,8 +3,6 @@
 
   const EMPTY_REPOS: GitHubRepo[] = [];
 
-  const colorMode = useColorMode();
-
   // Build-time list, embedded in the prerendered payload.
   const { data: prerendered, status } = await useFetch<GitHubResponse>(
     '/api/github',
@@ -23,25 +21,24 @@
 
   const data = computed(() => live.value ?? prerendered.value);
 
-  const FEATURED_REPOS = ['tileserver-rs', 'v-maplibre'];
-
-  const pinnedRepos = computed(() => {
-    if (!data.value?.pinned) return EMPTY_REPOS;
-    const pinned = [...data.value.pinned];
-    const featured = pinned.filter((r) => FEATURED_REPOS.includes(r.name));
-    const rest = pinned.filter((r) => !FEATURED_REPOS.includes(r.name));
-    return [...featured, ...rest];
-  });
-
   const repos = computed(() => data.value?.repos ?? EMPTY_REPOS);
-
-  function langDotStyle(repo: GitHubRepo): { backgroundColor: string } {
-    return { backgroundColor: repo.languageColor ?? 'var(--muted)' };
-  }
+  const visibleRepos = computed(() => repos.value.slice(0, 12));
 
   function formatStars(count: number): string {
     if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
     return count.toString();
+  }
+
+  function formatUpdated(updatedAt: string): string {
+    const days = Math.max(
+      0,
+      Math.floor((Date.now() - new Date(updatedAt).getTime()) / 86_400_000),
+    );
+
+    if (days === 0) return 'today';
+    if (days === 1) return '1d ago';
+    if (days < 365) return `${days}d ago`;
+    return `${Math.floor(days / 365)}y ago`;
   }
 
   // YOUR SPECIFIC PROJECTS
@@ -168,6 +165,72 @@
           </div>
         </a>
       </div>
+
+      <section
+        class="mt-16 overflow-hidden rounded-2xl border border-border bg-card"
+      >
+        <div class="border-b border-border px-6 py-5">
+          <p
+            class="text-sm font-semibold uppercase tracking-widest text-foreground"
+          >
+            All Repositories
+          </p>
+          <p class="mt-1 text-sm text-muted-foreground">
+            A live view of my latest open-source work.
+          </p>
+        </div>
+
+        <div v-if="visibleRepos.length" class="overflow-x-auto">
+          <div class="min-w-[48rem] divide-y divide-border">
+            <a
+              v-for="repo in visibleRepos"
+              :key="repo.url"
+              :href="repo.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="grid grid-cols-[16rem_minmax(0,1fr)_4rem_7rem_5rem] items-center gap-4 text-sm transition-colors hover:bg-accent/60"
+            >
+              <span
+                class="flex h-full items-center gap-3 border-r border-border px-6 py-4 font-medium text-foreground"
+              >
+                <span
+                  class="size-2 shrink-0 rounded-full"
+                  :style="{
+                    backgroundColor: repo.languageColor ?? 'var(--muted)',
+                  }"
+                />
+                <span class="truncate">{{ repo.name }}</span>
+              </span>
+              <p class="truncate py-4 text-muted-foreground">
+                  {{ repo.description ?? 'Open-source repository' }}
+                </p>
+              <span
+                class="inline-flex items-center gap-1 py-4 text-muted-foreground"
+              >
+                <Icon name="lucide:star" class="size-3.5" />
+                {{ formatStars(repo.stars) }}
+              </span>
+              <span class="truncate py-4 text-muted-foreground">
+                {{ repo.language ?? '—' }}
+              </span>
+              <time class="py-4 text-muted-foreground" :datetime="repo.updatedAt">
+                {{ formatUpdated(repo.updatedAt) }}
+              </time>
+              </a>
+            </div>
+        </div>
+
+        <div
+          v-else
+          class="px-6 py-12 text-center text-sm text-muted-foreground"
+        >
+          {{
+            status === 'pending'
+              ? 'Loading repositories…'
+              : 'Repositories are temporarily unavailable.'
+          }}
+        </div>
+      </section>
     </div>
   </section>
 </template>

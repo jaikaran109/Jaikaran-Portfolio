@@ -122,7 +122,7 @@ These rules are enforced. See `.agents/skills/vue-best-practices/` for detailed 
 
 - Icon mode is `svg` (not CSS mask -- mask mode renders broken glyphs)
 - Custom icon collection `base` registered from `app/assets/icons/`
-- Usage: `<Icon name="base:v-logo" class="size-8" mode="svg" />`
+- Usage: `<Icon name="base:j-logo" class="size-8" mode="svg" />`
 - Lucide as primary icon set: `<Icon name="lucide:icon-name" />`
 
 ## UX Principles -- Laws of UX
@@ -181,7 +181,7 @@ jaikaran-portfolio/
   app/
     assets/
       css/globals.css          # Tailwind v4 theme, oklch tokens
-      icons/                   # Custom SVG icons (v-logo.svg)
+      icons/                   # Custom SVG icons (j-logo.svg)
     components/
       ui/                      # shadcn-vue components (no pathPrefix)
       HeroSection.vue          # MapLibre globe + starfield
@@ -204,7 +204,7 @@ jaikaran-portfolio/
   content/
     articles/                  # Markdown articles
   public/
-    favicon.svg                # Potrace V. logo
+    favicon.svg                # J. logo
     milkyway.jpg               # Starfield galaxy texture
   nuxt.config.ts
   package.json

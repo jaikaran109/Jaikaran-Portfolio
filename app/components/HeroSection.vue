@@ -22,13 +22,11 @@
   const isAutomated = ref(false);
 
   const taglines = [
-    'GIS Engineer',
-    'Co-Founder',
-    'Open Source Cartographer',
-    'Vue.js Expert',
-    'Geospatial Architect',
-    'MERN Developer',
+    'AI-ML Learner',
+    'DSA',
     'OpenSource Contributor',
+    'Databases & Tools',
+    'MERN Developer',
     'Vibe Coder',
     'Problem Solver',
   ];
