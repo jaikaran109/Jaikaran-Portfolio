@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   future: {
-    compatibilityVersion: 5,
+    // Nuxt 5 compatibility currently breaks @nuxt/content's Nitro query route build.
+    compatibilityVersion: 4,
   },
 
   compatibilityDate: '2026-10-01',
